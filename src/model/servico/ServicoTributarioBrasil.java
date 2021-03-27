@@ -1,6 +1,6 @@
 package model.servico;
 
-public class ServicoTributarioBrasil {
+public class ServicoTributarioBrasil implements ServicoTributario {
 	
 	public double taxa(double quantidade) {
 		if (quantidade <= 100.0) {

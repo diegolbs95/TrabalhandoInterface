@@ -8,13 +8,13 @@ public class ServicoDeAluguel{
 	private Double PrecoPorDia;
 	private Double PrecoPorHora;
 	
-	private ServicoTributarioBrasil servicoTributarioBrasil;
+	private ServicoTributario servicoTributario;
 
-	public ServicoDeAluguel(Double precoPorDia, Double precoPorHora, ServicoTributarioBrasil servicoTributarioBrasil) {
+	public ServicoDeAluguel(Double precoPorDia, Double precoPorHora, ServicoTributario servicoTributario) {
 		super();
 		PrecoPorDia = precoPorDia;
 		PrecoPorHora = precoPorHora;
-		this.servicoTributarioBrasil = servicoTributarioBrasil;
+		this.servicoTributario = servicoTributario;
 	}
 	
 	public void ProcessoFatura(AluguelCarro aluguelCarro) {
@@ -30,7 +30,7 @@ public class ServicoDeAluguel{
 			pagamentoBasico = Math.ceil(horas / 24) * PrecoPorDia;
 		}
 		
-		double taxa = servicoTributarioBrasil.taxa(pagamentoBasico);//ESSA PARTE CALCULA PRA MIM O VALOR DO IMPOSTO
+		double taxa = servicoTributario.taxa(pagamentoBasico);//ESSA PARTE CALCULA PRA MIM O VALOR DO IMPOSTO
 		
 		aluguelCarro.setNotafiscal(new NotaFiscal(pagamentoBasico, taxa));
 		//CRIEI UM NOVO OBJETO DE NOTA DE PAGAMENTO E ASSOCIEI ELE COM MEU OBJETO DE ALUGUEL"aluguelCarro"
