@@ -10,11 +10,11 @@ public class ServicoDeAluguel{
 	
 	private ServicoTributario servicoTributario;
 
-	public ServicoDeAluguel(Double precoPorDia, Double precoPorHora, ServicoTributario servicoTributario) {
+	public ServicoDeAluguel(Double precoPorDia, Double precoPorHora) {
 		super();
 		PrecoPorDia = precoPorDia;
 		PrecoPorHora = precoPorHora;
-		this.servicoTributario = servicoTributario;
+		this.servicoTributario = new ServicoTributarioBrasil();
 	}
 	
 	public void ProcessoFatura(AluguelCarro aluguelCarro) {
